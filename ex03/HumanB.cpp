@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 12:18:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:29:49 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/09/11 16:49:51 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/09/11 17:52:58 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-int	main(void)
+#include "HumanB.hpp"
+
+HumanB::HumanB(std::string name) : _weap(NULL)
 {
-	Zombie* heapzombie;
+	_name = name;
+	return;
+}
 
-	heapzombie = Zombie::newZombie("heap-kun");
-	heapzombie->announce();
-	delete (heapzombie);
-	Zombie::randomChump("stack-chan");
-	return (0);
+HumanB::~HumanB()
+{
+	return;
+}
+
+void HumanB::attack() const
+{
+	std::cout << _name << " attacks with his " << _weap->getType() << std::endl;
+}
+
+void HumanB::setWeapon(Weapon weap)
+{
+	_weap = &weap;
 }

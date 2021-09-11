@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 12:18:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:29:49 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/09/11 16:34:58 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/09/11 17:50:16 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef _HUMANA_HPP_
+#define _HUMANA_HPP_
 
-int	main(void)
+#include "Weapon.hpp"
+
+class HumanA
 {
-	Zombie* heapzombie;
+	public:
 
-	heapzombie = Zombie::newZombie("heap-kun");
-	heapzombie->announce();
-	delete (heapzombie);
-	Zombie::randomChump("stack-chan");
-	return (0);
-}
+	HumanA(std::string name, Weapon weap);
+	~HumanA();
+	void attack() const;
+
+	private:
+	
+	std::string _name;
+	Weapon*		_weap;
+};
+
+
+
+#endif

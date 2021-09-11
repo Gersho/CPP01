@@ -5,20 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 12:18:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:29:49 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/09/11 16:06:40 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/09/11 17:52:52 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+// #include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int	main(void)
 {
-	Zombie* heapzombie;
+	// {
+	// 	Weapon	club = Weapon("crude spiked club");
 
-	heapzombie = Zombie::newZombie("heap-kun");
-	heapzombie->announce();
-	delete (heapzombie);
-	Zombie::randomChump("stack-chan");
-	return (0);
+	// 	HumanA bob("Bob", club);
+	// 	bob.attack();
+	// 	club.setType("some other type of club");
+	// 	bob.attack();
+	// }
+	{
+		Weapon	club = Weapon("crude spiked club");
+		
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+
 }

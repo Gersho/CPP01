@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 12:18:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:29:49 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/09/11 16:10:49 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/09/11 17:48:36 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef _WEAPON_HPP_
+# define _WEAPON_HPP_
 
-int	main(void)
+#include <string>
+
+class Weapon
 {
-	Zombie* heapzombie;
+	public:
 
-	heapzombie = Zombie::newZombie("heap-kun");
-	heapzombie->announce();
-	delete (heapzombie);
-	Zombie::randomChump("stack-chan");
-	return (0);
-}
+	Weapon(std::string type);
+	~Weapon();
+	const std::string&	getType() const;
+	void				setType(std::string type);
+	
+	private:
+
+	std::string	_type;
+};
+
+#endif
