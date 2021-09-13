@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:36:45 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 17:51:00 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 12:36:15 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "HumanA.hpp"
 #include <iostream>
 
-HumanA::HumanA(std::string name, Weapon weap) : _weap(&weap)
+HumanA::HumanA(std::string name, Weapon weap) //: _weap(NULL)
 {
+	_weap = &weap;
 	_name = name;
 	return;
 }

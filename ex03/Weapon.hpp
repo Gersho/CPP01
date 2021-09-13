@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:10:49 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 17:48:36 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 12:40:19 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Weapon
 	
 	private:
 
-	std::string	_type;
+	std::string*	_type;
 };
 
 #endif

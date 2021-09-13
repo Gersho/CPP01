@@ -6,10 +6,9 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:47:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 17:52:10 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 11:49:53 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef _HUMANB_HPP_
 #define _HUMANB_HPP_

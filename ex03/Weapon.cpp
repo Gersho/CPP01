@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:18:32 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:54:17 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 12:57:07 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 	Weapon::Weapon(std::string type)
 	{
-		_type = type;
+		_type = &type;
 		return;
 	}
 
@@ -26,10 +26,10 @@
 
 	const std::string&	Weapon::getType() const
 	{
-		return (_type);
+		return (*_type);
 	}
 
 	void	Weapon::setType(std::string type)
 	{
-		_type = type;
+		*_type = type;
 	}
