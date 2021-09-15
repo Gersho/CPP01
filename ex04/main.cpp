@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 14:22:09 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/15 14:09:12 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/09/15 17:15:11 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <cstring>
 #include <string>
 
-int	basic_checks(int ac, char** av, std::ifstream& ifs, std::ofstream& ofs)
+int	basic_checks(int ac, char** av, std::ifstream& ifs)
 {
 	if (ac != 4)
 	{
@@ -31,11 +31,6 @@ int	basic_checks(int ac, char** av, std::ifstream& ifs, std::ofstream& ofs)
 	if (!ifs.is_open())
 	{
 		std::cout << "Cannot open file " << av[1] << std::endl;
-		return (-1);
-	}
-	if (!ofs.is_open())
-	{
-		std::cout << "Cannot open output file" << std::endl;
 		return (-1);
 	}
 	return (0);
@@ -54,13 +49,14 @@ int	main(int ac, char** av)
 	int					s1_len;
 	int					tmp_len;
 
-
-	outfile += av[1];
-	outfile += ".replace";
-	std::ofstream		ofs(outfile);
-
-	if (basic_checks(ac, av, ifs, ofs) == -1)
+	if (basic_checks(ac, av, ifs) == -1)
 		return (-1);
+	std::ofstream		ofs(std::string(av[1]) + ".replace");
+	if (!ofs.is_open())
+	{
+		std::cout << "Cannot open output file" << std::endl;
+		return (-1);
+	}
 	s1 = av[2];
 	s2 = av[3];
 	ostringstream << ifs.rdbuf();
