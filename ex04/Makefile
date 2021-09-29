@@ -1,30 +1,27 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
+SRCS		= main.cpp
 
-using std::cout; using std::cerr;
-using std::endl; using std::string;
-using std::ifstream; using std::ostringstream;
 
-string readFileIntoString2(const string& path) {
-    auto ss = ostringstream{};
-    ifstream input_file(path);
-    if (!input_file.is_open()) {
-        cerr << "Could not open the file - '"
-             << path << "'" << endl;
-        exit(EXIT_FAILURE);
-    }
-    ss << input_file.rdbuf();
-    return ss.str();
-}
+OBJS			= $(SRCS:.cpp=.o)
 
-int main()
-{
-    string filename("input.txt");
-    string file_contents;
+NAME			= replace
+CC				= clang++
+RM				= rm -f
+CFLAGS			= --std=c++98 -Wall -Wextra -Werror
 
-    file_contents = readFileIntoString2(filename);
-    cout << file_contents << endl;
+all:			$(NAME)
 
-    exit(EXIT_SUCCESS);
-}
+%.o: 			%.cpp
+				$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+
+clean:			
+				$(RM) $(OBJS)
+
+fclean:			clean
+				$(RM) $(NAME)
+
+re:			fclean all
+
+.PHONY:		re fclean clean all
