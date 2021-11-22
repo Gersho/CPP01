@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 12:18:35 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 16:30:17 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/22 17:18:32 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	Zombie*	horde;
+	Zombie	*horde;
 	int		i;
 	int		n;
 

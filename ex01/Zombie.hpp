@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 11:52:12 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/11 14:23:03 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/22 17:18:47 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Zombie
 	~Zombie(void);
 	void	announce(void) const;
 	void	set_name(std::string name);
-	static Zombie* zombieHorde( int N, std::string name );
+	static Zombie *zombieHorde( int N, std::string name );
 
 	private:
 

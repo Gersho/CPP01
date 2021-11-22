@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:34:58 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/13 12:35:39 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/22 17:24:41 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA
 	private:
 	
 	std::string _name;
-	Weapon*		_weap;
+	Weapon		*_weap;
 };
 
 

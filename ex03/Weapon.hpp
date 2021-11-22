@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:10:49 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/09/13 12:40:19 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/11/22 17:24:28 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class Weapon
 
 	Weapon(std::string type);
 	~Weapon();
-	const std::string&	getType() const;
+	const std::string	&getType() const;
 	void				setType(std::string type);
 	
 	private:
 
-	std::string*	_type;
+	std::string		*_type;
 };
 
 #endif
