@@ -1,23 +1,27 @@
 SRCS		= HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 
-
 OBJS			= $(SRCS:.cpp=.o)
+
+DEPS			= $(SRCS:.cpp=.d)
 
 NAME			= violence
 CC				= clang++
-RM				= rm -f
 CFLAGS			= --std=c++98 -Wall -Wextra -Werror
 
 all:			$(NAME)
 
-%.o: 			%.cpp	HumanA.hpp HumanB.hpp Weapon.hpp
+%.d:			%.cpp
+				$(CC) $(CFLAGS) -MM -MG -MT $(@:%.d=%.o) $< -o $@
+
+%.o: 			%.cpp	%.d
 				$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):		$(OBJS) HumanA.hpp HumanB.hpp Weapon.hpp
-				$(CC) $(CFLAGS) -IHumanA.hpp -IHumanB.hpp -IWeapon.hpp -o $(NAME) $(OBJS)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-clean:		
+clean:			
 				$(RM) $(OBJS)
+				$(RM) $(DEPS)
 
 fclean:			clean
 				$(RM) $(NAME)
@@ -25,3 +29,5 @@ fclean:			clean
 re:			fclean all
 
 .PHONY:		re fclean clean all
+
+-include $(DEPS)

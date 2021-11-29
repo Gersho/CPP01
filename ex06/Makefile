@@ -1,23 +1,27 @@
 SRCS		= Karen.cpp main.cpp
 
-
 OBJS			= $(SRCS:.cpp=.o)
+
+DEPS			= $(SRCS:.cpp=.d)
 
 NAME			= karen
 CC				= clang++
-RM				= rm -f
 CFLAGS			= --std=c++98 -Wall -Wextra -Werror
 
 all:			$(NAME)
 
-%.o: 			%.cpp	Karen.hpp
+%.d:			%.cpp
+				$(CC) $(CFLAGS) -MM -MG -MT $(@:%.d=%.o) $< -o $@
+
+%.o: 			%.cpp	%.d
 				$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):		$(OBJS) Karen.hpp
-				$(CC) $(CFLAGS) -IKaren.hpp -o $(NAME) $(OBJS)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:			
 				$(RM) $(OBJS)
+				$(RM) $(DEPS)
 
 fclean:			clean
 				$(RM) $(NAME)
@@ -25,3 +29,5 @@ fclean:			clean
 re:			fclean all
 
 .PHONY:		re fclean clean all
+
+-include $(DEPS)
