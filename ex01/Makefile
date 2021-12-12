@@ -1,23 +1,25 @@
 SRCS		= Zombie.cpp ZombieHorde.cpp main.cpp
 
-
 OBJS			= $(SRCS:.cpp=.o)
+
+DEPS			= $(SRCS:.cpp=.d)
 
 NAME			= zombiehorde
 CC				= clang++
-RM				= rm -f
 CFLAGS			= --std=c++98 -Wall -Wextra -Werror
 
 all:			$(NAME)
 
-%.o: 			%.cpp	Zombie.hpp
+%.o: 			%.cpp
+				$(CC) $(CFLAGS) -MM -MG -MT $@ $< -o $(@:%.o=%.d)
 				$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME):		$(OBJS) Zombie.hpp
-				$(CC) $(CFLAGS) -IZombie.hpp -o $(NAME) $(OBJS)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:			
 				$(RM) $(OBJS)
+				$(RM) $(DEPS)
 
 fclean:			clean
 				$(RM) $(NAME)
@@ -25,3 +27,5 @@ fclean:			clean
 re:			fclean all
 
 .PHONY:		re fclean clean all
+
+-include $(DEPS)
